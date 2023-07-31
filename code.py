@@ -25,9 +25,6 @@ if esp.status == adafruit_esp32spi.WL_IDLE_STATUS:
 print("Firmware vers.", esp.firmware_version)
 print("MAC addr:", [hex(i) for i in esp.MAC_address])
 
-for ap in esp.scan_networks():
-    print("\t%s\t\tRSSI: %d" % (str(ap["ssid"], "utf-8"), ap["rssi"]))
-
 print("Connecting to AP...")
 while not esp.is_connected:
     try:
