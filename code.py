@@ -45,7 +45,7 @@ try:
     usv_feed = io.get_feed("radiation.usv-slash-h")
 except AdafruitIO_RequestError:
     # If no 'radiation' feeds exists, create
-    rad_feed = io.create_new_feed("radiation")
+    rad_feed = io.create_new_feed("radiation.cpm")
     usv_feed = io.create_new_feed("radiation.usv-slash-h")
 
 # setup Geiger counter pin
