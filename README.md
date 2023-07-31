@@ -9,8 +9,6 @@ This is a simple CircuitPython application that runs on an Adafruit Metro M4 Exp
 - A DFRobot Gravity IO Extension board ([Amazon](https://a.co/d/dOZaMgP) or [DFRobot](https://www.dfrobot.com/product-1009.html))
 - And, of course, the DF Robot Geiger counter module (I got mine from [PiHut](https://thepihut.com/products/gravity-geiger-counter-module-ionizing-radiation-detector) or [DFRobot](https://www.dfrobot.com/product-2547.html))
 
-![image of completed project](https://github.com/avnc/geiger/blob/b3079368eeb564b645382b995fef11e30f33ef3a/IMG_1430.jpeg)
-
 You could skip the IO extension board (and just cut the wires) but was simpler this way. I made a simple enclosure in TinkerCad that I 3D printed to hold the thing - it's awful and I will not share until I can clean it up... 
 
 The geiger tube itself relies on *high voltage*, so best to heed the warnings on the [DFRobot wiki](https://wiki.dfrobot.com/SKU_SEN0463_Gravity_Geiger_Counter_Module):
