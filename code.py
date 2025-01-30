@@ -11,10 +11,6 @@ from adafruit_io.adafruit_io import IO_HTTP
 from adafruit_io.adafruit_io import AdafruitIO_RequestError
 import adafruit_requests as requests
 
-# Configuration
-GEIGER_PIN = board.D3  # GPIO pin connected to the Geiger counter's pulse output
-DEBOUNCE_TIME = 0.1  # Debounce time in seconds
-
 # Using a Metro board with pre-defined ESP32 Pins, so gotta do this to get it all setup
 esp32_cs = digitalio.DigitalInOut(board.ESP_CS)
 esp32_ready = digitalio.DigitalInOut(board.ESP_BUSY)
@@ -54,13 +50,14 @@ except AdafruitIO_RequestError:
 
 # to get to uSv/h
 CONVERSION_FACTOR = 151
+GEIGER_PIN = board.D3  # GPIO pin connected to the Geiger counter's pulse output
 
 # initial values
 cpm = 0
 sleep_time = 60
 
 print("setting up geiger pin")
-# Setup pulse counter, this will count the inputs to the our IO pin connected to the Geiger counter
+# Setup pulse counter, this will count the inputs to the our GPIO pin connected to the Geiger counter
 pulse_counter = countio.Counter(GEIGER_PIN, edge=countio.Edge.FALL)
 
 # Function to calculate and display CPM
@@ -71,6 +68,7 @@ def calculate_cpm():
 
 print("starting measurement, first data in 60 seconds")
 print("-------------------------")
+
 # Main loop
 while True:
     try:
@@ -101,6 +99,7 @@ while True:
             sleep_time = 60
         print(f"sleeping another {sleep_time} seconds")
         print("-------------------------")
+
     except Exception as e:
         # An error occurred, print exception
         print("Error:", e)
